@@ -10,16 +10,17 @@ double formula(double a, double b) {
 }
 
 int main() {
-    int MAX_ITER;
-    double a, b, c, e = 0.0, ALLOWED_ERROR;
-    printf("Enter value of a, b, ALLOWED_ERROR and maximum iterations : ");
-    scanf("%lf%lf%lf%d", &a, &b, &ALLOWED_ERROR, &MAX_ITER);
+    int MAX_ITER, DECIMAL_PLACES;
+    double a, b, c, e = 0.0;
+    printf("Enter value of a, b, decimal places and maximum iterations : ");
+    scanf("%lf%lf%d%d", &a, &b, &DECIMAL_PLACES, &MAX_ITER);
+    double ALLOWED_ERROR = DECIMAL_PLACES / (pow(10, DECIMAL_PLACES) * DECIMAL_PLACES);
 
     for (int i = 0; i < MAX_ITER; ++i) {
         c = formula(a, b);
-        printf("Iteration %2d, c = %lf\n", i, c);
+        printf("Iteration %2.2d, c = %lf\n", i, c);
         if (fabs(e - c) < ALLOWED_ERROR) {
-            printf("After %2d iterations, root = %.4lf\n", i + 1, c);
+            printf("After %2d iterations, root = %.*lf\n", i + 1, DECIMAL_PLACES, c);
             return 0;
         }
         if (f(a) * f(c) < 0)

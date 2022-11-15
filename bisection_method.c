@@ -23,19 +23,20 @@ int main() {
         printf("Term %2d : ", i);
         scanf("%d%d", &equation[i].coeff, &equation[i].power);
     }
-
+    int DECIMAL_PLACES;
     double a, b, c, e, ALLOWED_ERROR;
     printf("Enter the starting assumption of a and b: ");
     scanf("%lf%lf", &a, &b);
-    printf("Enter the allowed error : ");
-    scanf("%lf", &ALLOWED_ERROR);
+    printf("Enter the decimal places : ");
+    scanf("%lf", &DECIMAL_PLACES);
+    ALLOWED_ERROR = DECIMAL_PLACES / (pow(10, DECIMAL_PLACES) * DECIMAL_PLACES);
     printEquation(equation);
 
     for (int i = 0; i <= MAX_ITER; i++) {
         c = (a + b) / 2;
-        printf("Iteratoin %2d, value of c = %lf\n", i, c);
+        printf("Iteratoin %2.2d, value of c = %lf\n", i, c);
         if (fabs(e - c) < ALLOWED_ERROR) {
-            printf("After %2d iterations, root = %.4lf\n", i + 1, c);
+            printf("After %2.2d iterations, root = %.*lf\n", i + 1, DECIMAL_PLACES, c);
             return 0;
         }
         if (func(equation, a) * func(equation, c) < 0)
