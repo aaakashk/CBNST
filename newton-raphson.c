@@ -15,7 +15,7 @@ int main() {
     printf("Enter the value of x0 : ");
     scanf("%lf", &x0);
     printf("Enter decimal places and maximum iterations : ");
-    scanf("%lf%d", &DECIMAL_PLACES, &MAX_ITER);
+    scanf("%d%d", &DECIMAL_PLACES, &MAX_ITER);
 
     for (int i = 0; i < MAX_ITER; ++i) {
         h = func(x0) / derivative(x0);

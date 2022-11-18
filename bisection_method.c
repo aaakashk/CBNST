@@ -28,7 +28,7 @@ int main() {
     printf("Enter the starting assumption of a and b: ");
     scanf("%lf%lf", &a, &b);
     printf("Enter the decimal places : ");
-    scanf("%lf", &DECIMAL_PLACES);
+    scanf("%d", &DECIMAL_PLACES);
     ALLOWED_ERROR = DECIMAL_PLACES / (pow(10, DECIMAL_PLACES) * DECIMAL_PLACES);
     printEquation(equation);
 
@@ -46,7 +46,7 @@ int main() {
         e = c;
     }
 
-    printf("\nRoot = %.4lf", c);
+    printf("\nRoot = %.*lf", DECIMAL_PLACES, c);
     return 0;
 }
 
