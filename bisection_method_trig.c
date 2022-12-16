@@ -14,7 +14,7 @@ int main() {
         printf("Iteration %2d, value of c = %lf\n", i, c);
         if (func(a) * func(c) < 0)
             b = c;
-        else if (func(b) * func(c))
+        else if (func(b) * func(c) < 0)
             a = c;
     }
     printf("Root = %.4lf", c);
